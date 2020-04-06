@@ -3,6 +3,7 @@ const path = require('path')
 
 // create a var that is an array of plugins for postcss-loader
 const postCSSPlugins = [
+  require('postcss-import'),
   require('postcss-simple-vars'),
   require('postcss-nested'),
   require('autoprefixer')
@@ -30,6 +31,7 @@ module.exports = {
       {
         // Test - only if the filename ends in .css then use the various loaders
         // postcss-loader needs some options or plugins to be specified - create var that is array above with these inside
+        // Prevent css-loader dealing with images
         test: /\.css$/i,
         use: ['style-loader', 'css-loader?url=false', { loader: 'postcss-loader', options: { plugins: postCSSPlugins } }]
       }
