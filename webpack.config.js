@@ -20,10 +20,24 @@ module.exports = {
     //absolite path to the correct folder
     path: path.resolve(__dirname, 'app')
   },
+  // settings for webpack-dev-server
+  devServer: {
+    // watch any files ending with .html in any folder under the app folder
+    before: function (app, server) {
+      server._watch('./app/**/*.html')
+    },
+    contentBase: path.join(__dirname, 'app'),
+    // hot module replacement - inject our new CSS and S into the browsers memory on the fly
+    hot: true,
+    //  would be 8080 by default, but 3000 is easier to remember
+    port: 3000,
+    // allows machines on local network to access it
+    host: '0.0.0.0'
+  },
   // To get rid of warning message in terminal that mode has not been speciified
   mode: 'development',
-  // watch the file for changes continuously
-  watch: true,
+  // watch the file for changes continuously - but can remove with devServer in place above
+  // watch: true,
   // module object with rule property
   module: {
     // can have multiple objects in the rules array!
