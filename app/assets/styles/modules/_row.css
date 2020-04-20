@@ -5,13 +5,21 @@
   @mixin atMedium {
 
     grid-template-columns: repeat(6, 1fr);
-
+    
     &--left-gutter {
       padding-left: 4rem;
     }
 
     &--right-gutter {
       padding-right: 4rem;
+    }
+
+    &--gutters-small {
+      grid-gap: 3rem;
+    }
+
+    &--t-padding {
+      padding-top: 80px;
     }
 
     &__medium-4 {
