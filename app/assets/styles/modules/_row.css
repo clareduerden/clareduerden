@@ -4,18 +4,26 @@
   
   @mixin atMedium {
 
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(6, 1fr);
 
     &--left-gutter {
       padding-left: 4rem;
     }
 
+    &--right-gutter {
+      padding-right: 4rem;
+    }
+
     &__medium-4 {
-      grid-column: 1 / span 4;
+      grid-column: span 2;
+    }
+
+    &__medium-6 {
+      grid-column: span 3;
     }
 
     &__medium-8 {
-      grid-column: 5 / span 8;
+      grid-column: span 4;
     }
   }
 }
