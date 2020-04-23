@@ -1,0 +1,54 @@
+.testimonial {
+
+  background: rgba(255, 255, 255, 0.8);
+  /* Need 1px of bottom padding so margin on child p doesn't collapse */
+  padding: 0 18px 1px 18px;
+  border-radius: 5px;
+  /* make the height 100% so that the div fills 100% height of it's grid container */ 
+  height: 100%;
+  /* stacked in mobile view - add 80px to offset the -80px on the photo */ 
+  margin-top: 80px;
+
+  /* Remove offset margins now that items are side by side - increase padding */
+  @mixin atLarge {
+    padding: 0 1.5rem 1px 1.5rem;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &--last {
+    margin-bottom: 0;
+  }
+
+  &__photo {
+    /* Need to display as block so that margin auto will work to center it */
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    /* Make it square so that border radius works */
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    /* Position relative to bring it upward by half of it's height */
+    position: relative;
+    top: -80px;
+    /* Have to remove bottom margin to prevent a big gap - page still thinks image is in original place */ 
+    margin-bottom: -80px;
+    border: solid rgba(255, 255, 255, 0.8) 6px;
+  }
+
+  &__title {
+    color: $mainBlue;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+    margin: 0.5rem 0 0 0;
+  }
+
+  &__subtitle {
+    color: $mainOrange;
+    text-align: center;
+    font-weight: 500;
+    margin-top: 0.5rem;
+  }
+}

@@ -1,11 +1,14 @@
 .row {
   display: grid;
   grid-template-columns: 1fr;
+
+  &--grid-gap-small {
+    grid-gap: 2.5rem;
+  }
   
   @mixin atMedium {
-
     grid-template-columns: repeat(6, 1fr);
-
+    
     &--left-gutter {
       padding-left: 4rem;
     }
@@ -25,5 +28,21 @@
     &__medium-8 {
       grid-column: span 4;
     }
+
+    &__medium-12 {
+      grid-column: span 6;
+    }
+  }
+
+  @mixin atLarge {
+
+    &--t-padding-at-large {
+      padding-top: 80px;
+    }
+
+    &__large-4 {
+      grid-column: span 2;
+    }
+
   }
 }
