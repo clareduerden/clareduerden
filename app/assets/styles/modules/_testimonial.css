@@ -1,10 +1,24 @@
 .testimonial {
 
   background: rgba(255, 255, 255, 0.8);
-  padding: 0 1.5rem 1px 1.5rem;
+  /* Need 1px of bottom padding so margin on child p doesn't collapse */
+  padding: 0 18px 1px 18px;
   border-radius: 5px;
   /* make the height 100% so that the div fills 100% height of it's grid container */ 
   height: 100%;
+  /* stacked in mobile view - add 80px to offset the -80px on the photo */ 
+  margin-top: 80px;
+
+  /* Remove offset margins now that items are side by side - increase padding */
+  @mixin atLarge {
+    padding: 0 1.5rem 1px 1.5rem;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &--last {
+    margin-bottom: 0;
+  }
 
   &__photo {
     /* Need to display as block so that margin auto will work to center it */

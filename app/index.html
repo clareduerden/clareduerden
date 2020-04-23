@@ -163,18 +163,21 @@
     </div>
   </div>
 
-  <div id="testimonials" class="page-section page-section--testimonials">
-    <div class="wrapper">
+  <div id="testimonials" class="page-section page-section--testimonials page-section--no-b-padding-until-large">
+    <div class="wrapper wrapper--no-padding-until-large">
       <h2 class="section-title section-title--blue"><img class="section-title__icon"
           src="assets/images/icons/comment.svg">Real
         <strong>Testimonials</strong>
       </h2>
 
-      <div class="row row--gutters-small row--t-padding generic-content-container">
+      <div class="row row--grid-gap-small row--t-padding-at-large generic-content-container">
 
-        <div class="row__medium-4">
+        <div class="row__medium-12 row__large-4">
           <div class="testimonial">
-            <img class="testimonial__photo" src="assets/images/testimonial-jane.jpg">
+            <!-- Responsive img set - standard and high dpi -->
+            <img sizes="160px" class="testimonial__photo"
+              srcset="assets/images/testimonial-jane.jpg 160w, assets/images/testimonial-jane-hi-dpi.jpg 320w"
+              alt="Jane Doe">
             <h3 class="testimonial__title">Jane Doe</h3>
             <h4 class=testimonial__subtitle>9 Time Escaper</h4>
             <p>&ldquo;Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
@@ -187,9 +190,12 @@
           </div>
         </div>
 
-        <div class="row__medium-4">
+        <div class="row__medium-12 row__large-4">
           <div class="testimonial">
-            <img class="testimonial__photo" src="assets/images/testimonial-john.jpg">
+            <!-- Responsive img set - standard and high dpi -->
+            <img sizes="160px" class="testimonial__photo"
+              srcset="assets/images/testimonial-john.jpg 160w, assets/images/testimonial-john-hi-dpi.jpg 320w"
+              alt="John Smith">
             <h3 class="testimonial__title">John Smith</h3>
             <h4 class=testimonial__subtitle>4 Time Escaper</h4>
             <p>&ldquo;Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
@@ -200,9 +206,12 @@
           </div>
         </div>
 
-        <div class="row__medium-4">
-          <div class="testimonial">
-            <img class="testimonial__photo" src="assets/images/testimonial-cat.jpg">
+        <div class="row__medium-12 row__large-4">
+          <div class="testimonial testimonial--last">
+            <!-- Responsive img set - standard and high dpi -->
+            <img sizes="160px" class="testimonial__photo"
+              srcset="assets/images/testimonial-cat.jpg 160w, assets/images/testimonial-cat-hi-dpi.jpg 320w"
+              alt="Cat McKitty">
             <h3 class="testimonial__title">Cat McKitty</h3>
             <h4 class=testimonial__subtitle>6 Time Escaper</h4>
             <p>&ldquo;Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
