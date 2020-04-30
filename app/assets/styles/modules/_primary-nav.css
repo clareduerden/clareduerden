@@ -1,0 +1,30 @@
+.primary-nav {
+  
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+  }
+
+  li {
+    padding-right: 2rem;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 300;
+    /* Needs to be display block so that padding will work */
+    display: block;
+    padding: 12px 0;
+  }
+
+  a:hover {
+    color: $mainOrange;
+  }
+
+  &--pull-right {
+    float: right;
+  }
+}
