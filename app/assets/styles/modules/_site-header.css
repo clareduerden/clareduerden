@@ -3,6 +3,11 @@
   z-index: 2;
   width: 100%;
   padding: 10px 0;
+  transition: background-color 0.5s ease-out;
+
+  &--is-expanded {
+    background-color: rgba($mainBlue, 0.8);
+  }
 
   @mixin atMedium {
     /* Need the plugin postcss-hexrgba to allow the below syntax */
@@ -36,6 +41,8 @@
     width: 30px;
     height: 30px;
     background-color: white;
+    /* MUST KEEP THIS ON TOP AT ALL TIMES SO IT CAN BE CLICKED!!!!! */ 
+    z-index: 10;
 
     @mixin atMedium {
       display: none;
@@ -43,19 +50,38 @@
   }
 
   &__menu-content {
-    display: none;
+    /* On small screens menu content should sit below the logo on one line and be centred */
+    /* On small screens it must be hidden by default - JS menu toggle functionality */
+    opacity: 0;
+    padding-top: 90px;
+    text-align: center;
+    /* Set up fade in/out and zoom in/out effects */
+    transition: all 0.5s ease-out;
+    transform: scale(1.2);
+    /* Set positin so z-index works, push to back - avoid clicks on invisibe content! */ 
+    position: relative;
+    z-index: -10;
 
     @mixin atMedium {
-      display: block;
+      opacity: 1;
+      padding-top: 0;
+      transform: scale(1);
+      z-index: 1;
     }
 
     /* class for JS menu toggle effect */
     &--is-visible {
-      display: block;
+      transform: scale(1);
+      opacity: 1;
+      z-index: 1;
     }
   }
 
   &__btn-container {
-    float: right;
+    float: none;
+
+    @mixin atMedium {
+      float: right;
+    }
   }
 }

@@ -1,14 +1,28 @@
 .primary-nav {
+  padding: 10px;
   
   ul {
     margin: 0;
     padding: 0;
     list-style: none;
     display: flex;
+    justify-content: center;
   }
 
   li {
-    padding-right: 2rem;
+    padding-right: 1rem;
+
+    &:last-child {
+      padding-right: 0;
+    }
+
+    @mixin atMedium {
+      padding-right: 2rem;
+
+      &:last-child {
+        padding-right: 2rem;
+      }
+    }
   }
 
   a {
@@ -25,6 +39,10 @@
   }
 
   &--pull-right {
-    float: right;
+
+    /* Only pull right on medium plus screens */ 
+    @mixin atMedium {
+      float: right;
+    }
   }
 }
