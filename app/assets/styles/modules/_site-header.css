@@ -48,6 +48,11 @@
     @mixin atMedium {
       display: block;
     }
+
+    /* class for JS menu toggle effect */
+    &--is-visible {
+      display: block;
+    }
   }
 
   &__btn-container {
