@@ -8,6 +8,8 @@
   }
 
   &__text-content {
+    /* Add 60px padding to adjust position to allow for height of header */
+    padding-top: 60px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);

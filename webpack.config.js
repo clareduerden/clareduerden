@@ -7,7 +7,8 @@ const postCSSPlugins = [
   require('postcss-mixins'),
   require('postcss-simple-vars'),
   require('postcss-nested'),
-  require('autoprefixer')
+  require('autoprefixer'),
+  require('postcss-hexrgba')
 ]
 
 // create JS object - tell webpack that it is this object that should be exported and used

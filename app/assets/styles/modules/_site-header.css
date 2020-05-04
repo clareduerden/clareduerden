@@ -1,0 +1,139 @@
+.site-header {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  padding: 10px 0;
+  transition: background-color 0.5s ease-out;
+
+  &--is-expanded {
+    background-color: rgba($mainBlue, 0.8);
+  }
+
+  @mixin atMedium {
+    /* Need the plugin postcss-hexrgba to allow the below syntax */
+    background-color: rgba($mainBlue, 0.3);
+  }
+
+  /* take the logo out of the natural flow of the page */
+  &__logo {
+    position: absolute;
+    background-color: $mainBlue;
+    padding: 14px 29px;
+    /* Make sure logo sits flush to top - overwrite padding of the site-header */
+    top: 0;
+    /* Position the logo centrally on smaller screens */ 
+    left: 50%;
+    transform: translateX(-50%);
+
+    /* Undo the central positioning above on larger screens */
+    @mixin atMedium {
+      padding: 25px 36px;
+      left: auto;
+      transform: none;
+    }
+  }
+
+  /* Create hamburger menu icon, whcih disappears atMedium*/
+  &__menu-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 19px;
+    /* MUST KEEP THIS ON TOP AT ALL TIMES SO IT CAN BE CLICKED!!!!! */ 
+    z-index: 10;
+
+    &::before {
+      content: '';
+      width: 100%;
+      height: 3px;
+      background: #fff;
+      position: absolute;
+      top: 0;
+      left: 0;
+      /* Pivot point for rotate needs to be top (0) left (0) */
+      transform-origin: 0 0;
+      transition: transform 0.3s ease-out;
+    }
+
+    &__middle {
+      width: 100%;
+      height: 3px;
+      background: #fff;
+      position: absolute;
+      top: 8px;
+      left: 0;
+      /* Needs to scale away to the left edge - pivot point */
+      transform-origin: 0 0;
+      transition: all 0.3s ease-out;
+    }
+
+    &::after {
+      content: '';
+      width: 100%;
+      height: 3px;
+      background: #fff;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      /* Pivot point for rotate needs to be bottom (100% left (0) */
+      transform-origin: 0 100%;
+      transition: transform 0.3s ease-out;
+    }
+
+    @mixin atMedium {
+      display: none;
+    }
+  }
+
+  &__menu-icon--close-x {
+    &::before {
+      transform: rotate(45deg) scaleX(1.25);
+    }
+
+    .site-header__menu-icon__middle {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    &::after {
+      transform: rotate(-45deg) scaleX(1.25) translateY(1px);
+    }
+  }
+
+  &__menu-content {
+    /* On small screens menu content should sit below the logo on one line and be centred */
+    /* On small screens it must be hidden by default - JS menu toggle functionality */
+    opacity: 0;
+    padding-top: 90px;
+    text-align: center;
+    /* Set up fade in/out and zoom in/out effects */
+    transition: all 0.5s ease-out;
+    transform: scale(1.2);
+    /* Set positin so z-index works, push to back - avoid clicks on invisibe content! */ 
+    position: relative;
+    z-index: -10;
+
+    @mixin atMedium {
+      opacity: 1;
+      padding-top: 0;
+      transform: scale(1);
+      z-index: 1;
+    }
+
+    /* class for JS menu toggle effect */
+    &--is-visible {
+      transform: scale(1);
+      opacity: 1;
+      z-index: 1;
+    }
+  }
+
+  &__btn-container {
+    float: none;
+
+    @mixin atMedium {
+      float: right;
+    }
+  }
+}
