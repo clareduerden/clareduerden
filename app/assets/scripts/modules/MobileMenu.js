@@ -17,6 +17,7 @@ class MobileMenu {
     // the toggle method belongs to the classList object will toggle the class specified
     this.menuContent.classList.toggle("site-header__menu-content--is-visible");
     this.siteHeader.classList.toggle("site-header--is-expanded");
+    this.menuIcon.classList.toggle("site-header__menu-icon--close-x");
   }
 }
 

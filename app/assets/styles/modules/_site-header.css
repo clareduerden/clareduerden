@@ -38,14 +38,66 @@
     position: absolute;
     top: 10px;
     right: 10px;
-    width: 30px;
-    height: 30px;
-    background-color: white;
+    width: 20px;
+    height: 19px;
     /* MUST KEEP THIS ON TOP AT ALL TIMES SO IT CAN BE CLICKED!!!!! */ 
     z-index: 10;
 
+    &::before {
+      content: '';
+      width: 100%;
+      height: 3px;
+      background: #fff;
+      position: absolute;
+      top: 0;
+      left: 0;
+      /* Pivot point for rotate needs to be top (0) left (0) */
+      transform-origin: 0 0;
+      transition: transform 0.3s ease-out;
+    }
+
+    &__middle {
+      width: 100%;
+      height: 3px;
+      background: #fff;
+      position: absolute;
+      top: 8px;
+      left: 0;
+      /* Needs to scale away to the left edge - pivot point */
+      transform-origin: 0 0;
+      transition: all 0.3s ease-out;
+    }
+
+    &::after {
+      content: '';
+      width: 100%;
+      height: 3px;
+      background: #fff;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      /* Pivot point for rotate needs to be bottom (100% left (0) */
+      transform-origin: 0 100%;
+      transition: transform 0.3s ease-out;
+    }
+
     @mixin atMedium {
       display: none;
+    }
+  }
+
+  &__menu-icon--close-x {
+    &::before {
+      transform: rotate(45deg) scaleX(1.25);
+    }
+
+    .site-header__menu-icon__middle {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    &::after {
+      transform: rotate(-45deg) scaleX(1.25) translateY(1px);
     }
   }
 
