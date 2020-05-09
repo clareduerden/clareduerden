@@ -2,8 +2,9 @@ import throttle from 'lodash/throttle'
 import debounce from 'lodash/debounce'
 
 class RevealOnScroll {
-  constructor() {
-    this.itemsToReveal = document.querySelectorAll(".feature-item");
+  constructor(els, thresholdPercent) {
+    this.itemsToReveal = els;
+    this.thresholdPercent = thresholdPercent;
     this.browserHeight = window.innerHeight;
     this.hideInitially();
     // throttle the scroll - function to be called no more than every 200ms (5 times per sec)
@@ -41,7 +42,7 @@ class RevealOnScroll {
       // Measure how far away top edge of el is from the top edge of browser viewport.
       // Find when top edge of el is 25% in view at the bottom of screen using the screen height
       let scrollPercent = (el.getBoundingClientRect().y / this.browserHeight) * 100;
-      if (scrollPercent < 75) {
+      if (scrollPercent < this.thresholdPercent) {
         el.classList.add("reveal-item--is-visible");
         el.isRevealed = true;
         if (el.isLastItem) {
